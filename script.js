@@ -33,6 +33,8 @@ const bounds = {
   bottom: rect.bottom + padding
 };
 
+ let isPaused = false;
+
   function animateIcons() {
     nodes.forEach(node => {
       const minSpeed = 0.6;
@@ -42,9 +44,11 @@ const bounds = {
         node.vx += (Math.random() - 0.5) * 0.5;
         node.vy += (Math.random() - 0.5) * 0.5;
       }
-      node.x += node.vx;
-      node.y += node.vy;
 
+      if (!isPaused) {
+        node.x += node.vx;
+        node.y += node.vy;
+      }
       // bounce
       // if (node.x < bounds.left || node.x > bounds.right) node.vx *= -1;
       // if (node.y < bounds.top || node.y > bounds.bottom) node.vy *= -1;
@@ -123,6 +127,15 @@ const bounds = {
 
     requestAnimationFrame(drawConnections);
   }
+
+  const toggleBtn = document.getElementById("toggleBtn");
+
+  toggleBtn.addEventListener("click", () => {
+    isPaused = !isPaused;
+
+    toggleBtn.textContent = isPaused ? "Play" : "Pause";
+  });
+
 
   drawConnections(); // 🔥 THIS WAS MISSING
 
