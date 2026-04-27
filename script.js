@@ -133,7 +133,7 @@ const bounds = {
   toggleBtn.addEventListener("click", () => {
     isPaused = !isPaused;
 
-    toggleBtn.textContent = isPaused ? "Play" : "Pause";
+    toggleBtn.textContent = isPaused ? "Play" : "Pause"
   });
 
 
