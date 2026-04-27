@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.querySelector('.title');
 const rect = title.getBoundingClientRect();
 
-const padding = 40;
+const padding = 150;
 
 const bounds = {
   left: rect.left - padding,
@@ -111,7 +111,8 @@ const bounds = {
 
     ctx.strokeStyle = `rgba(0,255,136,${opacity})`;
     ctx.lineWidth = 1.5;
-    ctx.setLineDash([4, 6]);
+    // ctx.setLineDash([4, 6]);
+    ctx.setLineDash([-9, -10]);
 
     ctx.shadowBlur = 10;
     ctx.shadowColor = "#00FF88";
